@@ -1,6 +1,10 @@
 # デバッグ記録
 
-## 再現
+## 最初に観測した事実
+
+1回目の検索は `[alice, carol]` を返すが、2回目の検索は結果を返す前にStream再利用例外となる。
+
+## 再現手順
 
 コミット `0c6b1d0` で `mvn --batch-mode test` を実行すると、2回目の `find("b")` で `IllegalStateException: stream has already been operated upon or closed` となる。
 
